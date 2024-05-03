@@ -54,6 +54,51 @@ public class CharacterMenuHandler : MonoBehaviour, IPointerEnterHandler, IPointe
         expandedImg.preserveAspect = true;
 
         description.text = playerData.characterDescription;
+
+        for(int i = 0; i < ratingA.Count; i++)
+        {
+            if(i <= playerData.damage)
+            {
+                ratingA[i].color = Color.white;
+            }
+            else
+            {
+                ratingA[i].color = Color.black;
+            }
+        }
+        for(int i = 0; i < ratingB.Count; i++)
+        {
+            if (i <= (playerData.health / 8))
+            {
+                ratingB[i].color = Color.white;
+            }
+            else
+            {
+                ratingB[i].color = Color.black;
+            }
+        }
+        for(int i = 0; i < ratingC.Count; i++)
+        {
+            if(i <= playerData.speed)
+            {
+                ratingC[i].color = Color.white;
+            }
+            else
+            {
+                ratingC[i].color = Color.black;
+            }
+        }
+        for(int i = 0; i < ratingD.Count; i++)
+        {
+            if (i <= playerData.rating)
+            {
+                ratingD[i].color = Color.white;
+            }
+            else
+            {
+                ratingD[i].color = Color.black;
+            }
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)

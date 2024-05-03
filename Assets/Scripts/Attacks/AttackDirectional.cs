@@ -9,6 +9,7 @@ public class AttackDirectional : AttackManager
     void Update()
     {
         if (!canAttack) { return; }
+        if (GameManager.instance.pauseFromUpgrade) { return; }
 
         cooldown -= Time.deltaTime;
 
@@ -27,10 +28,12 @@ public class AttackDirectional : AttackManager
     }
     public IEnumerator DoAmmoShots()
     {
-        for(int i = 0; i <abilityInstance.ammo; i++)
+        for(int i = 0; i < abilityInstance.ammo + Controller.playerInstance.ammo; i++)
         {
+            if (GameManager.instance.pauseFromUpgrade) { yield break; }
+
             if(i > 0)
-                yield return new WaitForSeconds((abilityInstance.ammo / Cooldown()) - 0.15f);
+                yield return new WaitForSeconds(((abilityInstance.ammo + Controller.playerInstance.ammo) / Cooldown()) - 0.15f);
 
             SpawnBullet();
         }
@@ -38,6 +41,6 @@ public class AttackDirectional : AttackManager
 
     public float Cooldown()
     {
-        return abilityInstance.cooldown;
+        return abilityInstance.cooldown - owner.cooldown;
     }
 }

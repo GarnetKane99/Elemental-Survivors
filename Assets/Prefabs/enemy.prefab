@@ -293,6 +293,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health Bar
       objectReference: {fileID: 0}
+    - target: {fileID: 3323828515200933265, guid: 44b17766b1dd6f14baecca80d24c3d52, type: 3}
+      propertyPath: m_Color.b
+      value: 0.48333755
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323828515200933265, guid: 44b17766b1dd6f14baecca80d24c3d52, type: 3}
+      propertyPath: m_Color.g
+      value: 0.3915094
+      objectReference: {fileID: 0}
+    - target: {fileID: 3323828515200933265, guid: 44b17766b1dd6f14baecca80d24c3d52, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

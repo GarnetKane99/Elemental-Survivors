@@ -12,6 +12,6 @@ public class PlayerData : ScriptableObject
 
     public float speed;
     public float damage;
-    public float defence;
+    public float health;
     public float rating;
 }

@@ -13,7 +13,20 @@ MonoBehaviour:
   m_Name: UpgradeManager
   m_EditorClassIdentifier: 
   upgradeList:
+  - {fileID: 11400000, guid: a0441d0195f911f4d81f93bcfd99dbca, type: 2}
+  - {fileID: 11400000, guid: cb426c8039449264ba2a0c112651a958, type: 2}
+  - {fileID: 11400000, guid: 9bc56f3c4eeef804897cab28217aea9a, type: 2}
+  - {fileID: 11400000, guid: 7761a0220816f94408345ed233be416d, type: 2}
+  - {fileID: 11400000, guid: 14172fad6eaf26445aaf48d5fad1203d, type: 2}
+  - {fileID: 11400000, guid: 9486f9e3586a1b943a2431213a500201, type: 2}
+  - {fileID: 11400000, guid: a137bba231eb54142816945ac2923192, type: 2}
+  - {fileID: 11400000, guid: 5dccd09f92a4d7247a493dca5f69e890, type: 2}
+  - {fileID: 11400000, guid: 6159d6c2eddfe8f40a19bdb6c796ffca, type: 2}
+  - {fileID: 11400000, guid: cfae7052b9e8ff04cbe61fc4f528f44d, type: 2}
   - {fileID: 11400000, guid: 14cd6b568735e5747a267a89df859815, type: 2}
+  - {fileID: 11400000, guid: 2110b4f246166ae46b81b58826b5c2b6, type: 2}
+  - {fileID: 11400000, guid: e6d1188e8aa0508458ef2ac7fb30baca, type: 2}
+  - {fileID: 11400000, guid: f5c441358d17cab42bf3f5ce10c7b744, type: 2}
   upgradeXPRequirement:
   - 10
   - 15
@@ -23,3 +36,27 @@ MonoBehaviour:
   - 60
   - 75
   - 100
+  - 125
+  - 150
+  - 200
+  - 250
+  - 350
+  - 450
+  - 600
+  - 700
+  - 850
+  - 1000
+  - 1250
+  - 1500
+  - 2000
+  - 2500
+  - 5000
+  - 7500
+  - 10000
+  - 12500
+  - 20000
+  - 30000
+  - 40000
+  - 50000
+  - 75000
+  - 100000

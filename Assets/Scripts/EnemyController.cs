@@ -24,6 +24,9 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         if (!canMove) { return; }
+
+        if (GameManager.instance.pauseFromUpgrade) { return; }
+
         Engage();
         CreatePath();
     }

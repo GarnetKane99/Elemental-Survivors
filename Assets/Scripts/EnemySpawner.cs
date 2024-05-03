@@ -9,6 +9,8 @@ public class EnemySpawner : MonoBehaviour
 
     public List<EnemyController> activeEnemies = new List<EnemyController>();
 
+    public float spawnTime = 2f;
+
     private void Awake()
     {
         instance = this; 
@@ -16,7 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-        InvokeRepeating("SpawnEnemiesRecurring", 0, 1f);
+        InvokeRepeating("SpawnEnemiesRecurring", 0, spawnTime);
     }
 
     public void SpawnEnemiesRecurring()
@@ -27,6 +29,16 @@ public class EnemySpawner : MonoBehaviour
         EnemyController enemyInstance = Instantiate(randomEnemy, randomNode.transform, Quaternion.identity);
         enemyInstance.Init(randomNode);
         activeEnemies.Add(enemyInstance);
+    }
+
+    /*public void Update()
+    {
+        if (GameManager.instance.pauseFromUpgrade) { }
+    }*/
+
+    public void StopSpawn()
+    {
+        CancelInvoke();
     }
 
     public Node RandomNodeNearPlayer()

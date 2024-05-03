@@ -11,9 +11,12 @@ public class EXPController : MonoBehaviour
     }
     void Update()
     {
-        transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + 1 * Time.deltaTime * 20);
+        if (GameManager.instance.pauseFromUpgrade) { return; }
 
-        if(Vector2.Distance(transform.position, Controller.playerInstance.transform.position) < 1.0f)
+        //transform.rotation = Quaternion.Euler(0, 0, transform.rotation.z + 1 * Time.deltaTime * 20);
+        transform.Rotate(0, 0, 20 * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, Controller.playerInstance.transform.position) < EXPManager.instance.pickupRadius)
         {
             transform.position = Vector3.MoveTowards(transform.position, Controller.playerInstance.transform.position, 1f * Time.deltaTime); 
         }

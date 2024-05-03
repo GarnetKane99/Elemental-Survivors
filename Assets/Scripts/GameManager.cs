@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public Controller player = null;
 
+    public bool pauseFromUpgrade = false;
+
     private void Awake()
     {
         if(instance != null)

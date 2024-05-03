@@ -13,8 +13,8 @@ public class Bullet : MonoBehaviour
     public void GoToTarget(AbilityData ability)
     {
         aData = ability;
-        lifetime = aData.lifeTime;
-        hitTargets = ability.hitCount;
+        lifetime = aData.lifeTime + Controller.playerInstance.bulletLifetime;
+        hitTargets = ability.hitCount + Controller.playerInstance.hitLifetime;
         target = FindNearestEnemy();
         canMove = true;
     }
@@ -22,6 +22,8 @@ public class Bullet : MonoBehaviour
     public void Update()
     {
         if (!canMove) { return; }
+        if (GameManager.instance.pauseFromUpgrade) { return; }
+
         if(target == null) { Destroy(this.gameObject); return; }
         lifetime -= Time.deltaTime;
 
@@ -33,7 +35,7 @@ public class Bullet : MonoBehaviour
 
        //Vector3 dir = (target.position - transform.position).normalized;
 
-        transform.Translate(target * aData.speed * Time.deltaTime);
+        transform.Translate(target * (aData.speed + Controller.playerInstance.attackSpeed) * Time.deltaTime);
     }
 
     public Vector3 FindNearestEnemy()
@@ -55,6 +57,8 @@ public class Bullet : MonoBehaviour
             }
         }
 
+        if(curTransform == null) { Destroy(this.gameObject); return Vector3.zero; }
+
         return (curTransform.position-transform.position).normalized;
     }
 
@@ -62,7 +66,7 @@ public class Bullet : MonoBehaviour
     {
         if(collision.tag != "Enemy") { return; }
 
-        collision.GetComponent<EnemyController>().GetDamaged(target, aData.dmg);
+        collision.GetComponent<EnemyController>().GetDamaged(target, aData.dmg + Controller.playerInstance.damage);
         hitTargets--;
     }
 }
