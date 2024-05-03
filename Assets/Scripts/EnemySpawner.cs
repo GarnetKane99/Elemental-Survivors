@@ -11,6 +11,8 @@ public class EnemySpawner : MonoBehaviour
 
     public float spawnTime = 2f;
 
+    private int spawnCount = 0;
+
     private void Awake()
     {
         instance = this; 
@@ -24,11 +26,31 @@ public class EnemySpawner : MonoBehaviour
     public void SpawnEnemiesRecurring()
     {
         EnemyController randomEnemy = enemies[Random.Range(0, enemies.Count)];
+        if(spawnCount % 25 == 0 && spawnCount > 0) 
+        {
+            float angleStep = 360f / 30;
+
+            for(int i = 0; i < 30; i++)
+            {
+                float angle = i * angleStep;
+                Vector3 spawnPos = transform.position + Quaternion.Euler(0, 0, angle) * Vector3.right * 3f;
+                Node randNode = AStarManager.instance.NearestNode(spawnPos);
+
+                EnemyController inst = Instantiate(randomEnemy, randNode.transform, Quaternion.identity);
+                inst.Init(randNode);
+                activeEnemies.Add(inst);
+            }
+
+            spawnCount++;
+            return;         
+        }
+
 
         Node randomNode = RandomNodeNearPlayer();
         EnemyController enemyInstance = Instantiate(randomEnemy, randomNode.transform, Quaternion.identity);
         enemyInstance.Init(randomNode);
         activeEnemies.Add(enemyInstance);
+        spawnCount++;
     }
 
     /*public void Update()

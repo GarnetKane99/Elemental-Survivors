@@ -26,7 +26,6 @@ public class EXPController : MonoBehaviour
     {
         if(collision.tag != "Player") { return; }
 
-        Debug.Log($"gaining xp");
         collision.GetComponent<Controller>().IncreaseXP(xp == default ? 1 : xp);
 
         Destroy(this.gameObject);

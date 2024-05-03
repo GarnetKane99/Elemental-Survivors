@@ -10,6 +10,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI speed;
     public TextMeshProUGUI level;
 
+    public GameObject endGamePopup;
+
     private void Awake()
     {
         instance = this;
@@ -20,6 +22,11 @@ public class UIManager : MonoBehaviour
         damage.text = (Controller.playerInstance.playerData.damage + Controller.playerInstance.damage).ToString();
         speed.text = Controller.playerInstance.speed.ToString();
         level.text = EXPManager.instance.curLvl.ToString();
+    }
+
+    public void DisplayEndGame()
+    {
+        endGamePopup.SetActive(true);
     }
 
 }

@@ -25,6 +25,9 @@ public class Controller : MonoBehaviour
     public float damage;
     public float health;
 
+    private float dmgCooldown = .1f;
+    public bool hitStop = false;
+
     private void Awake()
     {
         playerInstance = this;
@@ -58,6 +61,16 @@ public class Controller : MonoBehaviour
         if (!canMove) { return; }
         if (GameManager.instance.pauseFromUpgrade) { return; }
 
+        if (hitStop)
+        {
+            dmgCooldown -= Time.deltaTime;
+            if(dmgCooldown <= 0)
+            {
+                dmgCooldown = 0.1f;
+                hitStop = false;
+            }
+        }
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
 
@@ -69,12 +82,13 @@ public class Controller : MonoBehaviour
         EXPManager.instance.IncreaseEXP(val);
     }
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.tag != "Enemy") { return; }
+        if(hitStop) { return; }
 
-        //Debug.Log($"collision detected with enemy");
         TakeDamage((int)collision.GetComponent<EnemyController>().enemyData.dmg);
+        hitStop = true;
     }
 
     public void TakeDamage(int dmg)
@@ -85,6 +99,9 @@ public class Controller : MonoBehaviour
 
         if(health <= 0)
         {
+            EnemySpawner.instance.StopSpawn();
+            GameManager.instance.pauseFromUpgrade = true;
+            UIManager.instance.DisplayEndGame();
             //end game
         }
     }
