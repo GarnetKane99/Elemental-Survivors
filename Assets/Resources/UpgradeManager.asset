@@ -16,17 +16,39 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a0441d0195f911f4d81f93bcfd99dbca, type: 2}
   - {fileID: 11400000, guid: cb426c8039449264ba2a0c112651a958, type: 2}
   - {fileID: 11400000, guid: 9bc56f3c4eeef804897cab28217aea9a, type: 2}
+  - {fileID: 11400000, guid: 0346d376791e34ca6984c2a9563c0061, type: 2}
   - {fileID: 11400000, guid: 7761a0220816f94408345ed233be416d, type: 2}
+  - {fileID: 11400000, guid: 081a51d073d1d46629c266fbc89f171e, type: 2}
+  - {fileID: 11400000, guid: 1264ea5f4a31a4ef3bce1c0f50d92a7d, type: 2}
+  - {fileID: 11400000, guid: 0bae4776254e24f798cb91b7aaaa3cf0, type: 2}
+  - {fileID: 11400000, guid: 7e941173c988f44338c44714894c7128, type: 2}
+  - {fileID: 11400000, guid: e64acc0beb3c64b8db178263ecdbcfb2, type: 2}
   - {fileID: 11400000, guid: 14172fad6eaf26445aaf48d5fad1203d, type: 2}
   - {fileID: 11400000, guid: 9486f9e3586a1b943a2431213a500201, type: 2}
   - {fileID: 11400000, guid: a137bba231eb54142816945ac2923192, type: 2}
+  - {fileID: 11400000, guid: ab3edcefed6c14b5d8ad0c211f29f161, type: 2}
+  - {fileID: 11400000, guid: 77490444036564992adc9ce590141a81, type: 2}
+  - {fileID: 11400000, guid: 8f280990d4e954678b6acdbc4932b69e, type: 2}
+  - {fileID: 11400000, guid: e05570dbeb4c34380b7780e1bb8245e6, type: 2}
+  - {fileID: 11400000, guid: afc0c6c02d8794bff8c9808c080ef12e, type: 2}
   - {fileID: 11400000, guid: 5dccd09f92a4d7247a493dca5f69e890, type: 2}
   - {fileID: 11400000, guid: 6159d6c2eddfe8f40a19bdb6c796ffca, type: 2}
   - {fileID: 11400000, guid: cfae7052b9e8ff04cbe61fc4f528f44d, type: 2}
+  - {fileID: 11400000, guid: ce200435834ad413880102e3a43f464e, type: 2}
+  - {fileID: 11400000, guid: 70c70337034fc41c792e99f5473616c9, type: 2}
+  - {fileID: 11400000, guid: c5091816e89b94c629cabd844b96360b, type: 2}
+  - {fileID: 11400000, guid: cd7ea36741fd3412ebb37b6426bb9324, type: 2}
+  - {fileID: 11400000, guid: defb93dc6bd3b43fea18ffbb66d19a73, type: 2}
   - {fileID: 11400000, guid: 14cd6b568735e5747a267a89df859815, type: 2}
+  - {fileID: 11400000, guid: b5fd598260cdf47678c57e614127ac57, type: 2}
+  - {fileID: 11400000, guid: 6553261c2836a4ff991442cabf02b566, type: 2}
+  - {fileID: 11400000, guid: c8f7dc0aeeea34e7e969fb6dc597687b, type: 2}
+  - {fileID: 11400000, guid: b9fa9b5069d7d4b2981546b17a1f7dd6, type: 2}
   - {fileID: 11400000, guid: 2110b4f246166ae46b81b58826b5c2b6, type: 2}
+  - {fileID: 11400000, guid: 10ad4d9b1dc4d45c7a2f2afe2e02afc2, type: 2}
   - {fileID: 11400000, guid: e6d1188e8aa0508458ef2ac7fb30baca, type: 2}
   - {fileID: 11400000, guid: f5c441358d17cab42bf3f5ce10c7b744, type: 2}
+  - {fileID: 11400000, guid: a4e5c32e0b2c2400c89f24d87818c6d0, type: 2}
   upgradeXPRequirement:
   - 10
   - 15
@@ -60,3 +82,12 @@ MonoBehaviour:
   - 50000
   - 75000
   - 100000
+  - 110000
+  - 120000
+  - 130000
+  - 150000
+  - 200000
+  - 250000
+  - 500000
+  - 750000
+  - 1000000

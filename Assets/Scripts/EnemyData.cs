@@ -8,4 +8,6 @@ public class EnemyData : ScriptableObject
     public float speed;
     public float health;
     public float dmg;
+
+    public types type;
 }

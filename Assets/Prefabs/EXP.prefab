@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 793397775987204751}
   - component: {fileID: 3649715322281275584}
   - component: {fileID: 4957260679478191273}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: EXP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 8779846582887544038}
   - component: {fileID: 4360568662655181494}
   - component: {fileID: 289788910456151745}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}

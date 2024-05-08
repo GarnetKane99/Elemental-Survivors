@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9e661af79b13f4486faa202b34e349, type: 3}
   m_Name: Slim
   m_EditorClassIdentifier: 
-  character: {fileID: 21300000, guid: 93be4d6bec8ccd443b35d6fb03367db9, type: 3}
+  controller: {fileID: 9100000, guid: 9526399b33f0642659d14af95b2bff6c, type: 2}
+  character: {fileID: 40780174, guid: 892b40493c954441a8b3866b2d0a20b6, type: 3}
   playerName: Slim
   characterDescription: Slim actually thicc as hell. Ironically named, he has low
     speed but high damage and defence. For the players who hate their life
-  speed: 2
+  speed: 4
   damage: 4
   health: 30
-  rating: 2
+  rating: 1
+  type: 4
+  evolution: {fileID: 11400000, guid: c2f9eed76b0e04a2aa85927c6412e1da, type: 2}

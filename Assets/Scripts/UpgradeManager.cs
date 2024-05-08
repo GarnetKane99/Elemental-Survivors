@@ -8,6 +8,7 @@ public class UpgradeManager : MonoBehaviour
 {
     public Button upgrade;
     public Upgrades upgradeType;
+    public Image sprite;
     public TextMeshProUGUI upgradeName;
     public TextMeshProUGUI upgradeDescription;
 
@@ -20,6 +21,8 @@ public class UpgradeManager : MonoBehaviour
     {
         upgradeType = null;
         upgradeType = upgrade;
+        if (upgrade.upgradeSprite != null)
+            sprite.sprite = upgrade.upgradeSprite;
         upgradeName.text = upgrade.upgradeType.ToString();
         if(upgrade.upgradeType != Upgrades.UpgradeTypes.newWeapon)
             upgradeDescription.text = upgrade.upgradeRarity.ToString() + "\n" + upgrade.upgradeType.ToString() + " +" + upgrade.upgradeVal.ToString();
@@ -41,11 +44,11 @@ public class UpgradeManager : MonoBehaviour
                 break;
             case Upgrades.UpgradeTypes.cooldown:
                 DecreaseSpawnTime();
-                DecreaseSpawnTime();
                 Controller.playerInstance.cooldown -= upgradeType.upgradeVal;
                 break;
             case Upgrades.UpgradeTypes.hitLifetime:
                 IncreaseEnemyHealth();
+
                 Controller.playerInstance.hitLifetime += (int)upgradeType.upgradeVal;
                 break;
             case Upgrades.UpgradeTypes.bulletLifetime:
@@ -53,6 +56,8 @@ public class UpgradeManager : MonoBehaviour
                 break;
             case Upgrades.UpgradeTypes.pickupRadius:
                 DecreaseSpawnTime();
+                IncreaseEnemyHealth();
+
                 EXPManager.instance.pickupRadius += upgradeType.upgradeVal;
                 break;
             case Upgrades.UpgradeTypes.attackSpeed:
@@ -60,11 +65,20 @@ public class UpgradeManager : MonoBehaviour
                 break;
             case Upgrades.UpgradeTypes.speed:
                 DecreaseSpawnTime();
+                IncreaseEnemyHealth();
                 Controller.playerInstance.speed += upgradeType.upgradeVal;
                 break;
             case Upgrades.UpgradeTypes.damage:
                 IncreaseEnemyHealth();
                 Controller.playerInstance.damage += upgradeType.upgradeVal;
+                break;
+            case Upgrades.UpgradeTypes.health:
+                Controller.playerInstance.RegenHealth(upgradeType.upgradeVal);
+                IncreaseEnemyHealth();
+                break;
+            case Upgrades.UpgradeTypes.maxHealth:
+                Controller.playerInstance.IncreaseMaxHealth(upgradeType.upgradeVal);
+                IncreaseEnemyHealth();
                 break;
         }
 
@@ -73,15 +87,20 @@ public class UpgradeManager : MonoBehaviour
 
     public void DecreaseSpawnTime()
     {
+        EnemySpawner.instance.StopSpawn();
         EnemySpawner.instance.spawnTime -= 0.1f;
+
+
         EnemySpawner.instance.spawnTime = Mathf.Clamp(EnemySpawner.instance.spawnTime, 0.5f, 5.0f);
+        EnemySpawner.instance.SpawnEnemy();
     }
 
     public void IncreaseEnemyHealth()
     {
-        for (int i = 0; i < EnemySpawner.instance.enemies.Count; i++)
-        {
-            EnemySpawner.instance.enemies[i].health += 2;
-        }
+        EnemySpawner.instance.healthAdd += 1;
+        //for (int i = 0; i < EnemySpawner.instance.enemies.Count; i++)
+        //{
+        //    //EnemySpawner.instance.enemies[i].enemyData.health += 5;
+        //}
     }
 }

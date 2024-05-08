@@ -15,7 +15,9 @@ public class Upgrades : ScriptableObject
         bulletLifetime,
         cooldown,
         ammo,
-        hitLifetime
+        hitLifetime,
+        health,
+        maxHealth
     }
 
     public enum UpgradeRarity
@@ -29,6 +31,7 @@ public class Upgrades : ScriptableObject
 
     public UpgradeTypes upgradeType;
     public UpgradeRarity upgradeRarity;
+    public Sprite upgradeSprite;
 
     public AbilityData newWeapon;
     public float upgradeVal;

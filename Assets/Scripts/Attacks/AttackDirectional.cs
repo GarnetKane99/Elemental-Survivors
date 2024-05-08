@@ -33,7 +33,7 @@ public class AttackDirectional : AttackManager
             if (GameManager.instance.pauseFromUpgrade) { yield break; }
 
             if(i > 0)
-                yield return new WaitForSeconds(((abilityInstance.ammo + Controller.playerInstance.ammo) / Cooldown()) - 0.15f);
+                yield return new WaitForSeconds((Cooldown() / (abilityInstance.ammo + Controller.playerInstance.ammo)));
 
             SpawnBullet();
         }
@@ -41,6 +41,8 @@ public class AttackDirectional : AttackManager
 
     public float Cooldown()
     {
-        return abilityInstance.cooldown - owner.cooldown;
+        float curCooldown = abilityInstance.cooldown + owner.cooldown;
+        return Mathf.Clamp(curCooldown, 0.2f, 3.0f);
+        //return abilityInstance.cooldown + owner.cooldown;
     }
 }

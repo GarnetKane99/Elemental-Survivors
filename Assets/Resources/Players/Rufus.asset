@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9e661af79b13f4486faa202b34e349, type: 3}
   m_Name: Rufus
   m_EditorClassIdentifier: 
-  character: {fileID: 21300000, guid: df720782be817c54fa6473c6a7d65bb5, type: 3}
+  controller: {fileID: 9100000, guid: 484b7f95552234574ade2171f5ec54fc, type: 2}
+  character: {fileID: -1556369976, guid: 4914acdb419ac4ffda82e36cf17c25d9, type: 3}
   playerName: Rufus
   characterDescription: Rufus is one of the characters of all time. High speed but
     low damage, great for beginners.
@@ -20,3 +21,5 @@ MonoBehaviour:
   damage: 2
   health: 15
   rating: 3
+  type: 2
+  evolution: {fileID: 11400000, guid: 5b00755f5567a4e6d93a111ec4a9d08c, type: 2}

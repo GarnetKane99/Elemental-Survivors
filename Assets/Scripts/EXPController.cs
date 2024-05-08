@@ -18,7 +18,7 @@ public class EXPController : MonoBehaviour
 
         if (Vector2.Distance(transform.position, Controller.playerInstance.transform.position) < EXPManager.instance.pickupRadius)
         {
-            transform.position = Vector3.MoveTowards(transform.position, Controller.playerInstance.transform.position, 1f * Time.deltaTime); 
+            transform.position = Vector3.MoveTowards(transform.position, Controller.playerInstance.transform.position, 5f * Time.deltaTime); 
         }
     }
 

@@ -9,9 +9,11 @@ public class Bullet : MonoBehaviour
     AbilityData aData;
     public float lifetime;
     public int hitTargets;
+    public LayerMask ignoreLayer;
     
     public void GoToTarget(AbilityData ability)
     {
+        //Physics2D.IgnoreLayerCollision(gameObject.layer, Controller.playerInstance.GetComponent<LayerMask>());
         aData = ability;
         lifetime = aData.lifeTime + Controller.playerInstance.bulletLifetime;
         hitTargets = ability.hitCount + Controller.playerInstance.hitLifetime;

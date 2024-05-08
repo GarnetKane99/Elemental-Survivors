@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b438d1dfc858404dbd809098ace3df1, type: 3}
+  m_Name: francine_a
+  m_EditorClassIdentifier: 
+  evolvedState: 0
+  evolutionBaseID: Grass
+  evolutions:
+  - evolutionID: Fire
+    evolutionDef: AHHH FIRE
+    evolved: 0
+    typeAddition: 1
+    newSprite: {fileID: 9100000, guid: 95f49337726a24639a036bbb071fe859, type: 2}
+    img: {fileID: 449507116, guid: 63f3af5d799df490e820f20175634315, type: 3}
+    evolvesTo: {fileID: 11400000, guid: 135ce095dea0d4f6a934cc4fc1f716b6, type: 2}
+    upgradeStats: {fileID: 0}
+  - evolutionID: Water
+    evolutionDef: she cool like water
+    evolved: 0
+    typeAddition: 2
+    newSprite: {fileID: 9100000, guid: b5e0934c0b39944dea7ab6046fdc4213, type: 2}
+    img: {fileID: 1468551843, guid: 8fbb0c9349c984aa38042406e7133de3, type: 3}
+    evolvesTo: {fileID: 11400000, guid: 6a90b2e323ca4407dba2df21fee1e7da, type: 2}
+    upgradeStats: {fileID: 0}
+  - evolutionID: Electric
+    evolutionDef: lectic buzz
+    evolved: 0
+    typeAddition: 4
+    newSprite: {fileID: 9100000, guid: 3140153321f9c488fa7449852bd26adc, type: 2}
+    img: {fileID: -1267967504, guid: 9badb49a079e54df4b0d02edc0552f14, type: 3}
+    evolvesTo: {fileID: 11400000, guid: 17b5d174f3f0e4ea48deb90d4ae3abf3, type: 2}
+    upgradeStats: {fileID: 0}

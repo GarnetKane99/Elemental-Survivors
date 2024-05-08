@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeType: 2
   upgradeRarity: 4
+  upgradeSprite: {fileID: 1606390724, guid: 0f7a8fffed3994f078a18480dcb62cd3, type: 3}
   newWeapon: {fileID: 0}
   upgradeVal: 4

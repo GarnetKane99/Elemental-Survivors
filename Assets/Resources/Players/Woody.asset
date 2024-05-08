@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a9e661af79b13f4486faa202b34e349, type: 3}
   m_Name: Woody
   m_EditorClassIdentifier: 
-  character: {fileID: 1430458319, guid: d5e38cc058f9b17438b5ad93d2c348f0, type: 3}
+  controller: {fileID: 9100000, guid: 2643efcc8c9574c1b858df8a9a308a0f, type: 2}
+  character: {fileID: 1877189160, guid: 369a5bedc938041cbbe0ebc0f61f6964, type: 3}
   playerName: Woody
   characterDescription: Woody is ya classic all rounder. Great for beginners and
     he was my testing dummy. He will always hold a special place in my little heart.
-  speed: 5
+  speed: 8
   damage: 3
   health: 25
   rating: 3
+  type: 1
+  evolution: {fileID: 11400000, guid: 1178f3524cbca4cbcad52b3e0d3b54aa, type: 2}

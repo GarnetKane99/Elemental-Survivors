@@ -15,6 +15,9 @@ public class EXPManager : MonoBehaviour
 
     public List<UpgradeManager> upgrades;
 
+    public GameObject evolvedBox;
+    public List<EvolutionHandler> evolutions;
+
     public Slider xpSlider;
     public LevelManager lvlMgr;
     public int curLvl = 0;
@@ -24,6 +27,10 @@ public class EXPManager : MonoBehaviour
     private void Awake()
     {
         upgradeBox.SetActive(false);
+        evolvedBox.SetActive(false);
+
+
+
         instance = this;
         xpSlider.maxValue = lvlMgr.upgradeXPRequirement[curLvl];
         xpSlider.value = 0;
@@ -36,9 +43,11 @@ public class EXPManager : MonoBehaviour
 
     public void DropEXP(Vector3 pos, int val)
     {
-        EXPController xp = Instantiate(experienceTypes[0], pos, Quaternion.identity);
+        EXPController xp = Instantiate(experienceTypes[0], pos, Quaternion.identity, EnemySpawner.instance.transform);
         xp.Init(val);
     }
+
+    public EvolutionManager curEvolution = null;
 
     public void IncreaseEXP(int val)
     {
@@ -46,10 +55,69 @@ public class EXPManager : MonoBehaviour
         if(xpSlider.value == xpSlider.maxValue)
         {
             //do stuff
-            upgradeBox.SetActive(true);
             GameManager.instance.pauseFromUpgrade = true;
             EnemySpawner.instance.StopSpawn();
 
+
+            if(curLvl % 10 == 0 && curLvl > 0 && curLvl < 30)
+            {
+                evolvedBox.SetActive(true);
+
+                EvolutionManager evolvedState = null;
+
+                if(GameManager.instance.selectedPlayerInstance.evolution.evolvedState == false)
+                {
+                    evolvedState = GameManager.instance.selectedPlayerInstance.evolution;
+                }
+                else
+                {
+                    for(int i = 0; i < GameManager.instance.selectedPlayerInstance.evolution.evolutions.Count; i++)
+                    {
+                        if (GameManager.instance.selectedPlayerInstance.evolution.evolutions[i].evolved)
+                        {
+                            evolvedState = GameManager.instance.selectedPlayerInstance.evolution.evolutions[i].evolvesTo;
+                            break;
+                        }
+                    }
+                }
+
+                for (int i = 0; i < evolutions.Count; i++)
+                {
+                    evolutions[i].gameObject.SetActive(true);
+                    if(i >= evolvedState.evolutions.Count)
+                    {
+                        evolutions[i].gameObject.SetActive(false);
+                        continue;
+                    }
+                    curEvolution = evolvedState;
+                    evolutions[i].Init(curEvolution.evolutions[i]);
+                }
+
+                //for(int i = 0; i < GameManager.instance.selectedPlayerInstance.evolutions.Count; i++)
+                //{
+                //    if (GameManager.instance.selectedPlayerInstance.evolutions[i].evolvedState) { continue; }
+
+                //    for(int j = 0; j < evolutions.Count; j++)
+                //    {
+                //        evolutions[j].gameObject.SetActive(true);
+                //        if(j > GameManager.instance.selectedPlayerInstance.evolutions[i].evolutions.Count)
+                //        {
+                //            evolutions[j].gameObject.SetActive(false);
+                //            continue;
+                //        }
+
+                //        curEvolution = GameManager.instance.selectedPlayerInstance.evolutions[i];
+
+                //        evolutions[j].Init(GameManager.instance.selectedPlayerInstance.evolutions[i].evolutions[j]);
+                //    }
+
+                //    break;
+                //}
+
+                return;
+            }
+
+            upgradeBox.SetActive(true);
             List<Upgrades> usedUpgrades = SelectUpgrades(3);
 
             for(int i = 0; i < upgrades.Count; i++)
@@ -114,12 +182,25 @@ public class EXPManager : MonoBehaviour
         }
     }
 
+    public void HideAndEvolve()
+    {
+        curEvolution.evolvedState = true;
+        evolvedBox.SetActive(false);
+        ResetXP();
+    }
+
     public void ResetXP()
     {
         EnemySpawner.instance.SpawnEnemy();
         GameManager.instance.pauseFromUpgrade = false;
         upgradeBox.SetActive(false);
         curLvl++;
+        if (curLvl >= lvlMgr.upgradeXPRequirement.Count)
+            curLvl--;
+
+        if(curLvl % 10 == 0 || curLvl > 25)
+            EnemySpawner.instance.speedAdder += 1;
+
         xpSlider.value = 0;
         xpSlider.maxValue = lvlMgr.upgradeXPRequirement[curLvl];
         UIManager.instance.UpdateTexts();

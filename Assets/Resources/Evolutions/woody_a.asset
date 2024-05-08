@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b438d1dfc858404dbd809098ace3df1, type: 3}
+  m_Name: woody_a
+  m_EditorClassIdentifier: 
+  evolvedState: 0
+  evolutionBaseID: Fire
+  evolutions:
+  - evolutionID: Water
+    evolutionDef: 'wa wa wa wa '
+    evolved: 0
+    typeAddition: 2
+    newSprite: {fileID: 9100000, guid: a02f0de05219f4d74b904e68890fb399, type: 2}
+    img: {fileID: -324106873, guid: 99f4d034f3e724589a822d33eeae0df9, type: 3}
+    evolvesTo: {fileID: 11400000, guid: a69398c20b53045a5b64fbeb93d31f0f, type: 2}
+    upgradeStats: {fileID: 0}
+  - evolutionID: Grass
+    evolutionDef: ga ga ga ga??/
+    evolved: 0
+    typeAddition: 8
+    newSprite: {fileID: 9100000, guid: d93317b12083448fb80ded51964efa28, type: 2}
+    img: {fileID: -1264256372, guid: bc7f28aa620654ebdba063de2b3f9f79, type: 3}
+    evolvesTo: {fileID: 11400000, guid: 963c237ac7cca4a9786d946b35930410, type: 2}
+    upgradeStats: {fileID: 0}
+  - evolutionID: Electric
+    evolutionDef: elctinc nfiesabifn mpaweomf HELP MEEEE
+    evolved: 0
+    typeAddition: 4
+    newSprite: {fileID: 9100000, guid: d3c161bc336ab44b6aa196ca0f98d2b5, type: 2}
+    img: {fileID: 522791151, guid: 1e0561f0876924417be75a3f9c8277b3, type: 3}
+    evolvesTo: {fileID: 11400000, guid: bf7c6119a23bf45c69452ea9675b2106, type: 2}
+    upgradeStats: {fileID: 0}

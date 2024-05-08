@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
             .SetEase(Ease.OutExpo)
             .OnComplete(() =>
             {
+                HighScoreArea.instance.startTimer = true;
                 EnemySpawner.instance.SpawnEnemy();
                 //player.EnableMovement();
                 StartCoroutine(StartGame());

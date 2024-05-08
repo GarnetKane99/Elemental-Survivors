@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5c013b59dce994e829f7afe046d7f1, type: 3}
   m_Name: rufus 0
   m_EditorClassIdentifier: 
-  cooldown: 3
+  cooldown: 2
   lifeTime: 0.8
   speed: 3
   dmg: 1
-  ammo: 3
+  ammo: 1
   hitCount: 2

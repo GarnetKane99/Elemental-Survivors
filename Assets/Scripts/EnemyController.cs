@@ -12,13 +12,15 @@ public class EnemyController : MonoBehaviour
     public List<Node> path = new List<Node>();
     public Node currentNode;
     public bool canMove = false;
+    float sped = default;
 
-    public void Init(Node cur)
+    public void Init(Node cur, float speedOffset = default)
     {
-        health = enemyData.health;
+        health = enemyData.health + EnemySpawner.instance.healthAdd;
         currentNode = cur;
         canMove = true;
-        healthMgr.Init(enemyData.health);
+        healthMgr.Init(enemyData.health + EnemySpawner.instance.healthAdd);
+        sped = speedOffset;
     }
 
     private void Update()
@@ -34,7 +36,6 @@ public class EnemyController : MonoBehaviour
     public void OnDestroy()
     {
         if (EXPManager.instance == null) { return; }
-        EXPManager.instance.DropEXP(transform.position, (int)healthMgr.maxHealth);
     }
 
     public void Engage()
@@ -50,7 +51,7 @@ public class EnemyController : MonoBehaviour
         if (path.Count > 0)
         {
             int x = path.Count - 1;
-            transform.position = Vector2.MoveTowards(transform.position, path[x].transform, enemyData.speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, path[x].transform, ((enemyData.speed + sped)/2) * Time.deltaTime);
 
             if(Vector2.Distance(transform.position, path[x].transform) < 0.75f)
             {
@@ -62,29 +63,77 @@ public class EnemyController : MonoBehaviour
 
     public void GetDamaged(Vector2 dir, float dmg)
     {
-        health -= dmg;
+        health -= TrueDamage(dmg);
+
         if(health <= 0)
         {
+            EXPManager.instance.DropEXP(transform.position, (int)healthMgr.maxHealth);
+
+            EnemySpawner.instance.killCount++;
+
+            HighScoreArea.instance.killCount.text = "Kill Count: " + EnemySpawner.instance.killCount;
+            
             Destroy(this.gameObject);
             return;
         }
 
-        healthMgr.Damaged(dmg);
-
-        SpriteRenderer rend = GetComponent<SpriteRenderer>();
-
-        //rend.DOColor(Color.clear, 0.1f)
-        //    .
-
-
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if(rb== null) { return; }
+        healthMgr.Damaged(TrueDamage(dmg));
 
         StartCoroutine(FlashRoutine());
+    }
 
-        //rb.AddForce(dir * 2.0f, ForceMode2D.Impulse);
-        //rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-        //StartCoroutine(ResetRB(rb));
+    public float TrueDamage(float dmg)
+    {
+        float rawDmg = dmg;
+        if(enemyData.type == types.Fire)
+        {
+            if(GameManager.instance.selectedPlayerInstance.type == types.Water)
+            {
+                rawDmg *= 2;
+            }
+            if(GameManager.instance.selectedPlayerInstance.type == types.Grass)
+            {
+                rawDmg /= 2;
+            }
+        }
+        else if (enemyData.type == types.Electric)
+        {
+            if(GameManager.instance.selectedPlayerInstance.type == types.Water)
+            {
+                rawDmg -= 2;
+            }
+            if(GameManager.instance.selectedPlayerInstance.type == types.Fire)
+            {
+                rawDmg *= 2;
+            }
+        }
+        else if(enemyData.type == types.Grass)
+        {
+            if(GameManager.instance.selectedPlayerInstance.type == types.Fire)
+            {
+                rawDmg *= 2;
+            }
+            if(GameManager.instance.selectedPlayerInstance.type == types.Water)
+            {
+                rawDmg -= 3;
+            }
+        }
+        else if(enemyData.type == types.Water)
+        {
+            if(GameManager.instance.selectedPlayerInstance.type == types.Electric)
+            {
+                rawDmg *= 3;
+            }
+            if(GameManager.instance.selectedPlayerInstance.type == types.Grass)
+            {
+                rawDmg *= 2;
+            }
+            if(GameManager.instance.selectedPlayerInstance.type == types.Fire)
+            {
+                rawDmg /= 2;
+            }
+        }
+        return rawDmg > 0 ? rawDmg : 1;
     }
 
     float flashDuration = 0.5f;

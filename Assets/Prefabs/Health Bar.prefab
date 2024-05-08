@@ -59,7 +59,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -116,6 +116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac7de2b78fffeb43848cc924ed5420c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 5180203831579940315}
+  decreaseHealthPopup: {fileID: 6974878266767858745, guid: 03958aa27de664d20b20a540d6159d56, type: 3}
+  popuptext: {fileID: 3065135607092321152, guid: 03958aa27de664d20b20a540d6159d56, type: 3}
   scrollBar: {fileID: 6978150478727961855}
   maxHealth: 0
 --- !u!1 &2522382406846968555

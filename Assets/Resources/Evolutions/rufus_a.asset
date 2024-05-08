@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b438d1dfc858404dbd809098ace3df1, type: 3}
+  m_Name: rufus_a
+  m_EditorClassIdentifier: 
+  evolvedState: 0
+  evolutionBaseID: Water
+  evolutions:
+  - evolutionID: Fire
+    evolutionDef: 'FIRE FIRE FIRE FIRE '
+    evolved: 0
+    typeAddition: 1
+    newSprite: {fileID: 9100000, guid: 773ed49b9f37d4f31aa8119b4e930e9e, type: 2}
+    img: {fileID: 1346637106, guid: 2a2514e5ce8944db784760d971701a5c, type: 3}
+    evolvesTo: {fileID: 11400000, guid: 702b1eb18338b4f648b3a4540b07f37a, type: 2}
+    upgradeStats: {fileID: 0}
+  - evolutionID: Grass
+    evolutionDef: snippy grass time to mow tha lawn
+    evolved: 0
+    typeAddition: 8
+    newSprite: {fileID: 9100000, guid: 67488799f40df48e591f8f4b5d4775b6, type: 2}
+    img: {fileID: 530318118, guid: 856a220b4f52b4b339f4f08b1e46e74a, type: 3}
+    evolvesTo: {fileID: 11400000, guid: e0f20fb12e7d24d56aa035cdddcee947, type: 2}
+    upgradeStats: {fileID: 0}
+  - evolutionID: Electric
+    evolutionDef: bzzzzzz
+    evolved: 0
+    typeAddition: 4
+    newSprite: {fileID: 9100000, guid: 74f905d49f45442dbbfa8ed96853042d, type: 2}
+    img: {fileID: -1022585600, guid: 80cf8251937274846b7f5cfca293ef55, type: 3}
+    evolvesTo: {fileID: 11400000, guid: 39f54bef93f744d95a993956533d9cce, type: 2}
+    upgradeStats: {fileID: 0}
